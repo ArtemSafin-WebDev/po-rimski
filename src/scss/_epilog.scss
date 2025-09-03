@@ -1,0 +1,207 @@
+@use "media";
+@use "utils";
+
+.epilog {
+  @include utils.blockWrapper;
+  position: relative;
+  padding-bottom: 6.6rem;
+  z-index: 10;
+  @include media.breakpoint(mobile) {
+    padding-bottom: 5rem;
+  }
+}
+
+.epilog__bg {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  min-width: 192rem;
+  -webkit-mask-image: url("../images/epilog-mask.webp");
+  mask-image: url("../images/epilog-mask.webp");
+  mask-size: 100% auto;
+  mask-position: left top;
+  mask-mode: alpha;
+  @include media.breakpoint(mobile) {
+    min-width: 39rem;
+    -webkit-mask-image: url("../images/epilog-mask-mobile.webp");
+    mask-image: url("../images/epilog-mask-mobile.webp");
+
+    -webkit-mask-image: none;
+  }
+}
+
+.epilog__bg-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.epilog__content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+}
+
+.epilog__top-heading {
+  font-size: 5.2rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 110%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  align-self: center;
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.epilog__middle-heading {
+  font-size: 10.7793rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 116%;
+  text-transform: uppercase;
+  display: grid;
+  grid-template-areas: "stack";
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  @include media.breakpoint(mobile) {
+    font-size: 5.0881rem;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 116%;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  &::after,
+  &::before {
+    content: attr(data-text);
+    grid-area: stack;
+    font: inherit;
+    color: #ff5129;
+    z-index: 5;
+  }
+
+  &::after {
+    position: relative;
+    left: -0.03em;
+    @include media.breakpoint(mobile) {
+      left: -0.05em;
+    }
+  }
+
+  &::before {
+    z-index: 2;
+    filter: blur(1.202rem);
+
+    @include media.breakpoint(mobile) {
+      filter: blur(5.673570156097412px);
+    }
+  }
+}
+
+.epilog__middle-heading-text {
+  grid-area: stack;
+  z-index: 10;
+}
+
+.epilog__bottom-heading {
+  font-size: 5.2rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 110%;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 6rem;
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%;
+    margin-bottom: 3rem;
+    max-width: 80%;
+  }
+}
+
+.epilog__btn {
+  align-self: center;
+  width: 30rem;
+  margin-bottom: 9rem;
+  @include media.breakpoint(mobile) {
+    width: auto;
+    margin-bottom: 6rem;
+  }
+}
+
+.epilog__phone {
+  align-self: center;
+  text-align: center;
+  font-size: 5.2rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 110%;
+  margin-bottom: 4.4rem;
+
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%;
+    margin-bottom: 3rem;
+  }
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.epilog__disclaimer {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin-bottom: 1.4rem;
+  text-align: center;
+  @include media.breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.epilog__rules-link {
+  align-self: center;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s;
+
+  &:hover {
+    text-decoration-color: transparent;
+  }
+
+  @include media.breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
+}

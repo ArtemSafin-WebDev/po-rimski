@@ -79,6 +79,9 @@
   &::after {
     position: relative;
     left: -0.03em;
+    @include media.breakpoint(mobile) {
+      left: 0.06em;
+    }
   }
 
   &::before {
