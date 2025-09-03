@@ -1,0 +1,131 @@
+@use "media";
+@use "utils";
+
+.dream {
+  @include utils.blockWrapper;
+  position: relative;
+  z-index: 10;
+}
+
+.dream__bg {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  min-width: 192rem;
+  -webkit-mask-image: url("../images/dream-mask-low-res.webp");
+  mask-image: url("../images/dream-mask-low-res.webp");
+  mask-size: 100% auto;
+  mask-position: left top;
+  mask-mode: alpha;
+  @include media.breakpoint(mobile) {
+    min-width: 39rem;
+
+    transform: translateX(-50%);
+    top: 0;
+    -webkit-mask-image: url("../images/dream-mobile-mask.webp");
+    mask-image: url("../images/dream-mobile-mask.webp");
+  }
+}
+
+.dream__bg-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dream__content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+}
+
+.dream__text-content {
+  display: flex;
+  flex-direction: column;
+  @include media.breakpoint(mobile) {
+    padding-top: 38rem;
+  }
+}
+
+.dream__small-heading {
+  font-size: 5.0018rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 110%;
+  text-transform: uppercase;
+
+  @include media.breakpoint(mobile) {
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: none;
+  }
+}
+
+.dream__large-heading {
+  font-size: 7.4946rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 110%;
+  text-transform: uppercase;
+  display: grid;
+  grid-template-areas: "stack";
+  max-width: 46rem;
+  margin-bottom: 3rem;
+  position: relative;
+  @include media.breakpoint(mobile) {
+    font-size: 5.088rem;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 110%;
+    text-transform: uppercase;
+    max-width: 34rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &::after,
+  &::before {
+    content: attr(data-text);
+    grid-area: stack;
+    font: inherit;
+    color: #ff5129;
+    z-index: 5;
+  }
+
+  &::after {
+    position: relative;
+    left: -0.04em;
+    @include media.breakpoint(mobile) {
+      left: -0.05em;
+    }
+  }
+
+  &::before {
+    z-index: 2;
+    filter: blur(1.202rem);
+
+    @include media.breakpoint(mobile) {
+      filter: blur(5.673570156097412px);
+    }
+  }
+}
+
+.dream__large-heading-text {
+  grid-area: stack;
+  z-index: 10;
+}
+
+.dream__btn {
+  width: 30rem;
+
+  @include media.breakpoint(mobile) {
+    width: 24.5rem;
+  }
+}

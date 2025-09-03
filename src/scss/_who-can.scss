@@ -6,6 +6,10 @@
   margin-bottom: 10rem;
   position: relative;
   z-index: 2;
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 2rem;
+  }
 }
 
 .who-can__bg {
