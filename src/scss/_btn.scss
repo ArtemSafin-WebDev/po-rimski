@@ -10,10 +10,16 @@
   line-height: 110%;
   color: white;
   background-color: var(--primary-color);
-  padding: 1.2rem 6rem;
+  padding: 1.2rem 3.2rem;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   align-self: flex-start;
+  max-width: 100%;
   border-radius: 10rem;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      box-shadow: 0rem 0rem 0.3618rem #ff5129, 0rem 0rem 2.1708rem #ff5129;
+    }
+  }
 
   @include media.breakpoint(mobile) {
     font-size: 1.8rem;

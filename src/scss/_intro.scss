@@ -6,11 +6,13 @@
   position: relative;
   z-index: 1;
   padding-top: 18rem;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
+  background-image: linear-gradient(to bottom, black 70%, transparent 80%);
 
   @include media.breakpoint(mobile) {
     padding-top: 9.5rem;
     margin-bottom: 5rem;
+    z-index: 10;
   }
 }
 
@@ -176,5 +178,12 @@
 @keyframes ticker {
   to {
     transform: translateX(calc(-50% - var(--gap, 0) / 2));
+  }
+}
+
+.intro__btn {
+  width: 30rem;
+  @include media.breakpoint(mobile) {
+    width: 24.5rem;
   }
 }

@@ -1,0 +1,225 @@
+@use "media";
+@use "utils";
+
+.who-can {
+  @include utils.blockWrapper;
+  margin-bottom: 10rem;
+  position: relative;
+  z-index: 2;
+}
+
+.who-can__bg {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  min-width: 192rem;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 40%,
+    black 80%,
+    transparent 100%
+  );
+
+  background-color: black;
+  margin-top: 12rem;
+  @include media.breakpoint(mobile) {
+    min-width: 39rem;
+    margin: 0;
+    margin-top: 0rem;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 33.33%,
+      black 66.66%,
+      transparent 100%
+    );
+  }
+}
+
+.who-can__bg-image {
+  width: 100%;
+  display: block;
+  height: auto;
+  picture:nth-child(2) & {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    @include media.breakpoint(mobile) {
+      display: block;
+    }
+  }
+}
+
+.who-can__content {
+  @include utils.blockContent;
+}
+
+.who-can__items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.who-can__item {
+  @include media.breakpointMF(small-tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 4rem;
+    align-items: center;
+    grid-template-areas: "left right";
+    &:not(:first-child) {
+      margin-top: -6rem;
+    }
+
+    &:nth-child(even) {
+      grid-template-areas: "right left";
+      .who-can__image-container,
+      .who-can__icon-container {
+        justify-self: flex-start;
+      }
+
+      .who-can__icon {
+        margin: 0;
+        margin-left: 4rem;
+        margin-top: 3rem;
+      }
+
+      .who-can__text-content {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+  }
+
+  @include media.breakpoint(mobile) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "left" "right";
+    grid-gap: 0;
+    text-align: center;
+    &:nth-child(even) {
+      .who-can__icon {
+        transform: translate(-50%, -50%) scale(1.1);
+        margin-left: 3rem;
+      }
+      .who-can__line {
+        display: none;
+      }
+
+      .who-can__text {
+        max-width: 24rem;
+      }
+    }
+  }
+}
+
+.who-can__image-container {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 40rem;
+  justify-self: flex-end;
+  position: relative;
+  z-index: 2;
+  grid-area: left;
+
+  @include media.breakpoint(mobile) {
+    justify-self: center;
+    max-width: 20rem;
+  }
+}
+.who-can__icon-container {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 40rem;
+  justify-self: flex-end;
+  position: relative;
+  z-index: 1;
+  grid-area: left;
+  mix-blend-mode: overlay;
+  @include media.breakpoint(mobile) {
+    justify-self: center;
+    max-width: 22rem;
+  }
+}
+
+.who-can__icon {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: 60rem;
+  height: 60rem;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  margin-left: -4rem;
+  margin-top: 2rem;
+  mix-blend-mode: overlay;
+
+  @include media.breakpoint(mobile) {
+    width: 28rem;
+    height: 28rem;
+    margin: 0;
+    margin-left: -1.5rem;
+    margin-top: 1rem;
+  }
+}
+
+.who-can__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.who-can__text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  grid-area: right;
+
+  @include media.breakpoint(mobile) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.who-can__title {
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 110%;
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%;
+  }
+}
+
+.who-can__text {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
+}
+
+.who-can__line {
+  width: 45rem;
+  height: auto;
+  align-self: center;
+  margin-top: 1rem;
+  mix-blend-mode: overlay;
+  @include media.breakpoint(mobile) {
+  }
+}
