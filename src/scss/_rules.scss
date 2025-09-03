@@ -1,0 +1,248 @@
+@use "media";
+@use "utils";
+
+.rules {
+  @include utils.blockWrapper;
+
+  position: relative;
+  z-index: 2;
+  margin-bottom: 10rem;
+}
+
+.rules__bg {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  min-width: 192rem;
+  margin-top: 20rem;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  background-color: black;
+
+  @include media.breakpoint(mobile) {
+    min-width: 39rem;
+    margin: 0;
+    margin-top: -4rem;
+    -webkit-mask-image: none;
+    top: 0;
+    transform: translateX(-50%);
+    background-color: black;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 20%,
+      black 80%,
+      transparent 100%
+    );
+    // -webkit-mask-image: linear-gradient(to right, black, transparent);
+  }
+}
+
+.rules__bg-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.rules__content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+}
+
+.rules__heading {
+  font-size: 5.2rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 110%;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  b {
+    color: #ff5129;
+  }
+
+  @include media.breakpoint(mobile) {
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%;
+  }
+}
+
+.rules__list {
+  display: flex;
+  flex-direction: column;
+  max-width: 100rem;
+  align-self: center;
+
+  @include media.breakpoint(mobile) {
+    max-width: none;
+  }
+}
+
+.rules__list-item {
+  &:not(:first-child) {
+    margin-top: -12rem;
+    @include media.breakpoint(mobile) {
+      margin-top: 0;
+    }
+  }
+}
+
+.rules__card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 0rem;
+  align-items: center;
+  grid-template-areas: "left right";
+
+  @include media.breakpointMF(small-tablet) {
+    .rules__list-item:nth-child(even) & {
+      grid-template-areas: "right left";
+      .rules__card-image-container {
+        justify-self: flex-start;
+      }
+
+      .rules__card-icon-wrapper {
+        justify-self: flex-start;
+      }
+
+      .rules__card-content {
+        justify-self: flex-end;
+        text-align: right;
+        align-items: flex-end;
+      }
+    }
+  }
+
+  @include media.breakpoint(mobile) {
+    grid-template-areas: "left" "right";
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.rules__card-image-container {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  width: 100%;
+  grid-area: left;
+  max-width: 40rem;
+  justify-self: flex-end;
+  z-index: 5;
+
+  @include media.breakpoint(mobile) {
+    max-width: 25rem;
+    justify-self: center;
+  }
+}
+
+.rules__card-icon-wrapper {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  width: 100%;
+  grid-area: left;
+  max-width: 40rem;
+  justify-self: flex-end;
+  z-index: 1;
+  mix-blend-mode: overlay;
+
+  @include media.breakpoint(mobile) {
+    max-width: 25rem;
+    justify-self: center;
+  }
+}
+
+.rules__card-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+
+  @include media.breakpointMF(small-tablet) {
+    .rules__list-item:nth-child(2) & {
+      width: 32rem;
+      max-width: none;
+      margin-left: 40rem;
+      margin-top: 6rem;
+    }
+    .rules__list-item:nth-child(3) & {
+      width: 38rem;
+      max-width: none;
+      margin-left: -15rem;
+      margin-top: 2rem;
+    }
+    .rules__list-item:nth-child(4) & {
+      width: 36.4706rem;
+
+      max-width: none;
+      margin-left: 20rem;
+      margin-top: -5rem;
+    }
+  }
+}
+
+.rules__card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rules__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  grid-area: right;
+  @include media.breakpoint(mobile) {
+    align-items: center;
+    text-align: center;
+  }
+
+  @include media.breakpoint(mobile) {
+    margin-top: -3rem;
+    gap: 1rem;
+  }
+}
+
+.rules__card-heading {
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 120%;
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%;
+  }
+}
+
+.rules__card-text {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  max-width: 38rem;
+
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    max-width: 30rem;
+  }
+}

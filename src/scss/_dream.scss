@@ -5,6 +5,10 @@
   @include utils.blockWrapper;
   position: relative;
   z-index: 10;
+  margin-bottom: 20rem;
+  @include media.breakpoint(mobile) {
+    margin-bottom: 10rem;
+  }
 }
 
 .dream__bg {
@@ -15,8 +19,8 @@
   transform: translateX(-50%) translateY(-50%);
   width: 100%;
   min-width: 192rem;
-  -webkit-mask-image: url("../images/dream-mask-low-res.webp");
-  mask-image: url("../images/dream-mask-low-res.webp");
+
+  mask-image: url("../images/dream-new-mask.webp");
   mask-size: 100% auto;
   mask-position: left top;
   mask-mode: alpha;
