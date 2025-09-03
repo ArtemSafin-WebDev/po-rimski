@@ -1,0 +1,13 @@
+@use "media";
+
+:root {
+  --primary-color: #fc3f1d;
+  --text-color: white;
+  --uni: "Uni Neue", sans-serif;
+  --content-padding: 4rem;
+  --container-width: 120rem;
+
+  @include media.breakpoint(mobile) {
+    --content-padding: 2rem;
+  }
+}
