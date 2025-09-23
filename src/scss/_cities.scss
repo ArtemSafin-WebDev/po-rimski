@@ -30,6 +30,10 @@
   @include media.breakpoint(mobile) {
     min-width: 39rem;
   }
+
+  &-khabarovsk{
+    margin-top: 25rem;
+  }
 }
 
 .cities__bg-image {
@@ -163,6 +167,13 @@
       margin-left: -13rem;
       margin-bottom: -6rem;
     }
+  }
+}
+
+.cities__block-card-line-khabarovsk{
+  .cities__block:nth-child(1) & {
+    margin-top: -29rem;
+    width: 60.9rem;
   }
 }
 
